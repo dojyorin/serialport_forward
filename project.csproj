@@ -1,0 +1,23 @@
+<Project Sdk="microsoft.net.sdk">
+    <PropertyGroup>
+        <ImplicitUsings>disable</ImplicitUsings>
+
+        <TargetFramework>net7.0</TargetFramework>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <OutputType>exe</OutputType>
+        <PublishTrimmed>true</PublishTrimmed>
+        <PublishSingleFile>true</PublishSingleFile>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+        <OutDir>./dist</OutDir>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+
+        <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
+        <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="microsoft.windows.compatibility" Version="7.0.0"></PackageReference>
+    </ItemGroup>
+</Project>
