@@ -16,6 +16,7 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 
+        <NoLogo>true</NoLogo>
         <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
         <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
 
