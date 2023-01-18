@@ -6,8 +6,11 @@
         <RuntimeIdentifier>win-x64</RuntimeIdentifier>
         <OutputType>exe</OutputType>
         <PublishTrimmed>true</PublishTrimmed>
-        <PublishSingleFile>true</PublishSingleFile>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
 
         <Configuration>.</Configuration>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
