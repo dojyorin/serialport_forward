@@ -9,7 +9,7 @@
         <PublishSingleFile>true</PublishSingleFile>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
-        <OutDir>./dist</OutDir>
+        <Configuration>.</Configuration>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 
