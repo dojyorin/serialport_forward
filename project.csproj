@@ -13,11 +13,13 @@
         <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
 
         <!-- <OutputPath>./dist</OutputPath> -->
+        <!-- <Optimize>true</Optimize> -->
+        <!-- <Deterministic>true<Deterministic> -->
         <Configuration>.</Configuration>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 
-        <NoLogo>true</NoLogo>
+        <!-- <NoLogo>true</NoLogo> -->
         <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
         <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
 
