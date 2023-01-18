@@ -18,6 +18,9 @@
 
         <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
         <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
     </PropertyGroup>
 
     <ItemGroup>
