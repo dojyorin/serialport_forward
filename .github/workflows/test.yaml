@@ -15,22 +15,15 @@ name: Test
             - '**.md'
 jobs:
     test:
-        name: 'Test: ${{matrix.os}}'
-        runs-on: ${{matrix.os}}
+        name: 'Test: ${{matrix.rid}}'
+        runs-on: ubuntu-latest
         strategy:
             fail-fast: true
             matrix:
-                os:
-                    - ubuntu-latest
-                    - macos-latest
-                    - windows-latest
-                include:
-                    - rid: linux-x64
-                      os: ubuntu-latest
-                    - rid: osx-x64
-                      os: macos-latest
-                    - rid: win-x64
-                      os: windows-latest
+                rid:
+                    - linux-x64
+                    - osx-x64
+                    - win-x64
         steps:
             - name: clone repository
               uses: actions/checkout@v3
