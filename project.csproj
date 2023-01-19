@@ -3,28 +3,28 @@
         <ImplicitUsings>disable</ImplicitUsings>
 
         <TargetFramework>net7.0</TargetFramework>
-        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
         <OutputType>exe</OutputType>
         <PublishTrimmed>true</PublishTrimmed>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <PublishSingleFile>true</PublishSingleFile>
         <SelfContained>true</SelfContained>
         <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
         <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+        <Optimize>true</Optimize>
+        <Deterministic>true</Deterministic>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
-        <!-- <OutputPath>./dist</OutputPath> -->
-        <!-- <Optimize>true</Optimize> -->
-        <!-- <Deterministic>true<Deterministic> -->
-        <Configuration>.</Configuration>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 
-        <!-- <NoLogo>true</NoLogo> -->
+        <NoLogo>true</NoLogo>
         <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
         <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
 
         <DebugType>none</DebugType>
         <DebugSymbols>false</DebugSymbols>
+
+        <Configuration>debug</Configuration>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     </PropertyGroup>
 
     <ItemGroup>
