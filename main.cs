@@ -11,6 +11,14 @@ if(args.Length != ARG_COUNT){
     Environment.Exit(1);
 }
 
+try{
+    int.Parse(args[1]);
+}
+catch(Exception){
+    Console.WriteLine("Invalid arguments.");
+    Environment.Exit(1);
+}
+
 using var sp = new SerialPort(args[0], int.Parse(args[1]));
 
 sp.DataBits = 8;
