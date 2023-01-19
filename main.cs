@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using System.IO.Ports;
 
 const byte ARG_COUNT = 2;
-const ushort SERIALPORT_BUFFER_SIZE = 10240;
-const ushort STREAM_BUFFER_SIZE = 61440;
+const ushort SERIALPORT_BUFFER_SIZE = 16384;
+const ushort STREAM_BUFFER_SIZE = 32768;
 
 if(args.Length != ARG_COUNT){
     Console.WriteLine($"Require {ARG_COUNT} arguments");
