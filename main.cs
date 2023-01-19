@@ -2,8 +2,12 @@ using System;
 using System.Threading.Tasks;
 using System.IO.Ports;
 
-if(args.Length != 2){
-    Console.WriteLine("Require 2 arguments of serialport 'Name' and 'Speed'");
+const byte ARG_COUNT = 2;
+const ushort SERIALPORT_BUFFER_SIZE = 10240;
+const ushort STREAM_BUFFER_SIZE = 61440;
+
+if(args.Length != ARG_COUNT){
+    Console.WriteLine($"Require {ARG_COUNT} arguments");
     Environment.Exit(1);
 }
 
@@ -14,8 +18,8 @@ sp.StopBits = StopBits.One;
 sp.Parity = Parity.None;
 sp.DtrEnable = true;
 sp.RtsEnable = true;
-sp.ReadBufferSize = 65536;
-sp.WriteBufferSize = 65536;
+sp.ReadBufferSize = SERIALPORT_BUFFER_SIZE;
+sp.WriteBufferSize = SERIALPORT_BUFFER_SIZE;
 
 try{
     sp.Open();
@@ -26,7 +30,7 @@ catch(Exception){
 }
 
 using var txTask = Task.Run(async()=>{
-    var buf = new char[1048576];
+    var buf = new char[STREAM_BUFFER_SIZE];
     var n = 0;
 
     while(true){
@@ -46,7 +50,7 @@ using var txTask = Task.Run(async()=>{
 });
 
 using var rxTask = Task.Run(async()=>{
-    var buf = new char[1048576];
+    var buf = new char[STREAM_BUFFER_SIZE];
     var n = 0;
 
     while(true){
