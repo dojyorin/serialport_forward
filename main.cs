@@ -3,8 +3,6 @@ using System.Threading.Tasks;
 using System.IO.Ports;
 
 const byte ARG_COUNT = 2;
-const ushort SERIALPORT_BUFFER_SIZE = 16384;
-const ushort STREAM_BUFFER_SIZE = 32768;
 
 if(args.Length != ARG_COUNT){
     Console.WriteLine($"Require {ARG_COUNT} arguments");
@@ -19,15 +17,7 @@ catch(Exception){
     Environment.Exit(1);
 }
 
-using var sp = new SerialPort(args[0], int.Parse(args[1]));
-
-sp.DataBits = 8;
-sp.StopBits = StopBits.One;
-sp.Parity = Parity.None;
-sp.DtrEnable = true;
-sp.RtsEnable = true;
-sp.ReadBufferSize = SERIALPORT_BUFFER_SIZE;
-sp.WriteBufferSize = SERIALPORT_BUFFER_SIZE;
+using var sp = createSerialPort(args[0], int.Parse(args[1]));
 
 try{
     sp.Open();
@@ -38,7 +28,7 @@ catch(Exception){
 }
 
 using var txTask = Task.Run(async()=>{
-    var buf = new char[STREAM_BUFFER_SIZE];
+    var buf = new char[32768];
     var n = 0;
 
     while(true){
@@ -58,7 +48,7 @@ using var txTask = Task.Run(async()=>{
 });
 
 using var rxTask = Task.Run(async()=>{
-    var buf = new char[STREAM_BUFFER_SIZE];
+    var buf = new char[32768];
     var n = 0;
 
     while(true){
@@ -75,3 +65,16 @@ using var rxTask = Task.Run(async()=>{
 
 txTask.Wait();
 rxTask.Wait();
+
+SerialPort createSerialPort(string device, int speed){
+    using var ctx = new SerialPort(device, speed);
+    ctx.DataBits = 8;
+    ctx.StopBits = StopBits.One;
+    ctx.Parity = Parity.None;
+    ctx.DtrEnable = true;
+    ctx.RtsEnable = true;
+    ctx.ReadBufferSize = 16384;
+    ctx.WriteBufferSize = 16384;
+
+    return ctx;
+}
