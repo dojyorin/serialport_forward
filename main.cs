@@ -6,7 +6,7 @@ const byte ARG_COUNT = 2;
 
 if(args.Length != ARG_COUNT){
     Console.WriteLine($"Require {ARG_COUNT} arguments");
-    Environment.Exit(1);
+    Environment.Exit(10);
 }
 
 try{
@@ -14,7 +14,7 @@ try{
 }
 catch(Exception){
     Console.WriteLine("Invalid arguments.");
-    Environment.Exit(1);
+    Environment.Exit(11);
 }
 
 using var sp = createSerialPort(args[0], int.Parse(args[1]));
@@ -24,7 +24,7 @@ try{
 }
 catch(Exception){
     Console.WriteLine("Could not open serialport.");
-    Environment.Exit(1);
+    Environment.Exit(12);
 }
 
 using var txTask = Task.Run(async()=>{

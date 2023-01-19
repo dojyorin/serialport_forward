@@ -28,6 +28,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="microsoft.windows.compatibility" Version="7.0.0"></PackageReference>
+        <PackageReference Include="System.IO.Ports" Version="7.0.0"></PackageReference>
     </ItemGroup>
 </Project>
