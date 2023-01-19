@@ -1,0 +1,53 @@
+{
+    "name": "Test",
+    "on": {
+        "push": {
+            "branches": [
+                "dev"
+            ],
+            "paths-ignore": [
+                ".git*",
+                "**.md"
+            ]
+        },
+        "pull_request": {
+            "branches": [
+                "master",
+                "dev"
+            ],
+            "paths-ignore": [
+                ".git*",
+                "**.md"
+            ]
+        }
+    },
+    "jobs": {
+        "test": {
+            "name": "Test: ${{matrix.rid}}",
+            "runs-on": "ubuntu-latest",
+            "strategy": {
+                "fail-fast": true,
+                "matrix": {
+                    "rid": [
+                        "linux-x64",
+                        "osx-x64",
+                        "win-x64"
+                    ]
+                }
+            },
+            "steps": [{
+                "name": "clone repository",
+                "uses": "actions/checkout@v3"
+            }, {
+                "name": "install dotnet",
+                "uses": "actions/setup-dotnet@v3",
+                "with": {
+                    "dotnet-version": "7.0.x"
+                }
+            }, {
+                "name": "run test",
+                "run": "dotnet build -r ${{matrix.rid}}"
+            }]
+        }
+    }
+}

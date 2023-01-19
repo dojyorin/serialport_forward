@@ -1,23 +1,33 @@
-<Project Sdk="microsoft.net.sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <ImplicitUsings>disable</ImplicitUsings>
 
         <TargetFramework>net7.0</TargetFramework>
-        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
         <OutputType>exe</OutputType>
         <PublishTrimmed>true</PublishTrimmed>
         <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+        <Optimize>true</Optimize>
+        <Deterministic>true</Deterministic>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
-        <OutDir>./dist</OutDir>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 
+        <NoLogo>true</NoLogo>
         <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
         <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+
+        <Configuration>debug</Configuration>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="microsoft.windows.compatibility" Version="7.0.0"></PackageReference>
+        <PackageReference Include="System.IO.Ports" Version="7.0.0"></PackageReference>
     </ItemGroup>
 </Project>
