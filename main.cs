@@ -27,7 +27,7 @@ catch(Exception){
     Environment.Exit(12);
 }
 
-using var std2sp = Task.Run(async()=>{
+using var t1 = Task.Run(async()=>{
     var buf = new char[32768];
     var n = 0;
 
@@ -42,7 +42,7 @@ using var std2sp = Task.Run(async()=>{
     }
 });
 
-using var sp2std = Task.Run(async()=>{
+using var t2 = Task.Run(async()=>{
     var buf = new char[32768];
     var n = 0;
 
@@ -57,15 +57,15 @@ using var sp2std = Task.Run(async()=>{
     }
 });
 
-std2sp.Wait();
-sp2std.Wait();
+t1.Wait();
+t2.Wait();
 
 SerialPort createSerialPort(string device, int speed){
-    using var ctx = new SerialPort(device, speed, Parity.None, 8, StopBits.One);
-    ctx.DtrEnable = true;
-    ctx.RtsEnable = true;
-    ctx.ReadBufferSize = 16384;
-    ctx.WriteBufferSize = 16384;
+    using var sp = new SerialPort(device, speed, Parity.None, 8, StopBits.One);
+    sp.DtrEnable = true;
+    sp.RtsEnable = true;
+    sp.ReadBufferSize = 16384;
+    sp.WriteBufferSize = 16384;
 
-    return ctx;
+    return sp;
 }
