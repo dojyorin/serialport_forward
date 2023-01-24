@@ -14,8 +14,11 @@
                 "matrix": {
                     "rid": [
                         "linux-x64",
+                        "linux-arm64",
                         "osx-x64",
-                        "win-x64"
+                        "osx-arm64",
+                        "win-x64",
+                        "win-arm64"
                     ]
                 }
             },
@@ -33,10 +36,10 @@
                 "run": "mv -f ./project.csproj ./spfw.csproj"
             }, {
                 "name": "build project",
-                "run": "dotnet publish -c release -r ${{matrix.rid}} -p:Version=`sed -e 's/v//' <(echo ${{github.ref_name}})`"
+                "run": "dotnet publish -r ${{matrix.rid}} -p:FileVersion=`echo -n '${{github.ref_name}}' | sed -e 's/v//'`.0"
             }, {
                 "name": "archive binary",
-                "run": "tar c -z -f ./spfw-${{matrix.rid}}.tgz -C ./bin/release/${{matrix.rid}}/publish ./"
+                "run": "tar c -z -f ./spfw-${{matrix.rid}}.tgz -C ./bin/Release/${{matrix.rid}}/publish ./"
             }, {
                 "name": "upload artifact",
                 "uses": "actions/upload-artifact@v3",
@@ -58,7 +61,7 @@
                 "uses": "softprops/action-gh-release@v1",
                 "with": {
                     "generate_release_notes": true,
-                    "files": "./linux-x64/spfw-linux-x64.tgz\n./osx-x64/spfw-osx-x64.tgz\n./win-x64/spfw-win-x64.tgz"
+                    "files": "./linux-x64/spfw-linux-x64.tgz\n./linux-arm64/spfw-linux-arm64.tgz\n./osx-x64/spfw-osx-x64.tgz\n./osx-arm64/spfw-osx-arm64.tgz\n./win-x64/spfw-win-x64.tgz\n./win-arm64/spfw-win-arm64.tgz"
                 }
             }]
         }
