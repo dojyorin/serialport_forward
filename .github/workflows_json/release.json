@@ -36,7 +36,7 @@
                 "run": "mv -f ./project.csproj ./spfw.csproj"
             }, {
                 "name": "build project",
-                "run": "dotnet publish -r ${{matrix.rid}} -p:FileVersion=`echo -n '${{github.ref_name}}' | sed -e 's/v//'`.0"
+                "run": "dotnet publish -r ${{matrix.rid}} -p:FileVersion=`echo '${{github.ref_name}}' | sed 's/v//'`.0"
             }, {
                 "name": "archive binary",
                 "run": "tar c -z -f ./spfw-${{matrix.rid}}.tgz -C ./bin/Release/${{matrix.rid}}/publish ./"
