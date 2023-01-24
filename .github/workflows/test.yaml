@@ -22,8 +22,11 @@ jobs:
             matrix:
                 rid:
                     - linux-x64
+                    - linux-arm64
                     - osx-x64
+                    - osx-arm64
                     - win-x64
+                    - win-arm64
         steps:
             - name: clone repository
               uses: actions/checkout@v3

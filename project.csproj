@@ -3,28 +3,36 @@
         <ImplicitUsings>disable</ImplicitUsings>
 
         <TargetFramework>net7.0</TargetFramework>
+        <RuntimeIdentifiers>linux-x64;linux-arm64;osx-x64;osx-arm64;win-x64;win-arm64</RuntimeIdentifiers>
         <OutputType>exe</OutputType>
         <PublishTrimmed>true</PublishTrimmed>
         <PublishSingleFile>true</PublishSingleFile>
         <SelfContained>true</SelfContained>
         <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
         <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
-        <Optimize>true</Optimize>
-        <Deterministic>true</Deterministic>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-
+        <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+        <Deterministic>true</Deterministic>
+        <Optimize>true</Optimize>
+        <PublishRelease>true</PublishRelease>
 
         <NoLogo>true</NoLogo>
         <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
         <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
-
         <DebugType>none</DebugType>
         <DebugSymbols>false</DebugSymbols>
 
-        <Configuration>debug</Configuration>
-        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+        <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+        <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+        <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+        <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+
+        <AssemblyTitle>spfw</AssemblyTitle>
+        <FileVersion>0.0.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>

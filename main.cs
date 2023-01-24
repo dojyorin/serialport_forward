@@ -34,11 +34,6 @@ using var std2sp = Task.Run(async()=>{
     while(true){
         try{
             n = await Console.In.ReadAsync(buf, 0, buf.Length);
-
-            if(n == 0){
-                continue;
-            }
-
             sp.Write(buf, 0, n);
         }
         catch(Exception){
@@ -54,7 +49,6 @@ using var sp2std = Task.Run(async()=>{
     while(true){
         try{
             n = sp.Read(buf, 0, buf.Length);
-
             await Console.Out.WriteAsync(buf, 0, n);
         }
         catch(Exception){
@@ -67,10 +61,7 @@ std2sp.Wait();
 sp2std.Wait();
 
 SerialPort createSerialPort(string device, int speed){
-    using var ctx = new SerialPort(device, speed);
-    ctx.DataBits = 8;
-    ctx.StopBits = StopBits.One;
-    ctx.Parity = Parity.None;
+    using var ctx = new SerialPort(device, speed, Parity.None, 8, StopBits.One);
     ctx.DtrEnable = true;
     ctx.RtsEnable = true;
     ctx.ReadBufferSize = 16384;
