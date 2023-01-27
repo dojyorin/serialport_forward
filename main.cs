@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using System.IO.Ports;
+using static ModSP.Export;
 
 const byte ARG_COUNT = 2;
 
@@ -59,13 +59,3 @@ using var t2 = Task.Run(async()=>{
 
 t1.Wait();
 t2.Wait();
-
-SerialPort createSerialPort(string device, int speed){
-    using var sp = new SerialPort(device, speed, Parity.None, 8, StopBits.One);
-    sp.DtrEnable = true;
-    sp.RtsEnable = true;
-    sp.ReadBufferSize = 16384;
-    sp.WriteBufferSize = 16384;
-
-    return sp;
-}
