@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ImplicitUsings>disable</ImplicitUsings>
 
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <RuntimeIdentifiers>linux-x64;linux-arm64;osx-x64;osx-arm64;win-x64;win-arm64</RuntimeIdentifiers>
         <OutputType>exe</OutputType>
         <PublishTrimmed>true</PublishTrimmed>
@@ -14,7 +14,6 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Deterministic>true</Deterministic>
         <Optimize>true</Optimize>
-        <PublishRelease>true</PublishRelease>
 
         <NoLogo>true</NoLogo>
         <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
@@ -36,6 +35,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.IO.Ports" Version="7.0.0"></PackageReference>
+        <PackageReference Include="System.IO.Ports" Version="8.0.0-preview.2.23128.3"></PackageReference>
     </ItemGroup>
 </Project>
