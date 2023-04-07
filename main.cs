@@ -1,28 +1,27 @@
 using System;
 using System.Threading.Tasks;
-using static ModSP.Export;
-using static ModERROR.Export;
+using static StaticUtility;
 
 const byte ARG_COUNT = 2;
 
 if(args.Length != ARG_COUNT){
-    failFast(false, $"Require {ARG_COUNT} arguments", REASON.INVALID_ARGUMENT_COUNT);
+    failExit(false, $"Require {ARG_COUNT} arguments", REASON.INVALID_ARGUMENT_COUNT);
 }
 
 try{
     int.Parse(args[1]);
 }
 catch(Exception){
-    failFast(false, "Invalid arguments.", REASON.INVALID_ARGUMENT_VALUE);
+    failExit(false, "Invalid arguments.", REASON.INVALID_ARGUMENT_VALUE);
 }
 
-using var sp = createSerialPort(args[0], int.Parse(args[1]));
+using var sp = createSerial(args[0], int.Parse(args[1]));
 
 try{
     sp.Open();
 }
 catch(Exception){
-    failFast(false, "Could not open serialport.", REASON.FAILED_OPEN_SERIALPORT);
+    failExit(false, "Could not open serialport.", REASON.FAILED_OPEN_SERIALPORT);
 }
 
 using var t1 = Task.Run(async()=>{
