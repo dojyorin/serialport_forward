@@ -1,6 +1,6 @@
 using System;
 
-partial internal static class StaticUtility{
+internal static partial class StaticUtility{
     internal static void failExit(bool pause, string message, REASON code){
         Console.WriteLine(message);
 

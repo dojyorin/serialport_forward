@@ -1,6 +1,6 @@
 using System.IO.Ports;
 
-partial internal static class StaticUtility{
+internal static partial class StaticUtility{
     internal static SerialPort createSerial(string device, int speed){
         using var sp = new SerialPort(device, speed, Parity.None, 8, StopBits.One);
         sp.DtrEnable = true;
