@@ -1,27 +1,28 @@
 using System;
 using System.Threading.Tasks;
-using static StaticUtility;
+using static _ERROR_;
+using static _SERIALPORT_;
 
 const byte ARG_COUNT = 2;
 
 if(args.Length != ARG_COUNT){
-    failExit(false, $"Require {ARG_COUNT} arguments", REASON.INVALID_ARGUMENT_COUNT);
+    errorExit($"Require {ARG_COUNT} arguments", EXIT_CODE.INVALID_ARGUMENT_COUNT);
 }
 
 try{
     int.Parse(args[1]);
 }
 catch(Exception){
-    failExit(false, "Invalid arguments.", REASON.INVALID_ARGUMENT_VALUE);
+    errorExit("Invalid arguments.", EXIT_CODE.INVALID_ARGUMENT_VALUE);
 }
 
-using var sp = createSerial(args[0], int.Parse(args[1]));
+using var sp = createSerialPort(args[0], int.Parse(args[1]));
 
 try{
     sp.Open();
 }
 catch(Exception){
-    failExit(false, "Could not open serialport.", REASON.FAILED_OPEN_SERIALPORT);
+    errorExit("Could not open serialport.", EXIT_CODE.FAILED_OPEN_SERIALPORT);
 }
 
 using var t1 = Task.Run(async()=>{

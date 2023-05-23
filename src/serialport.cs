@@ -1,7 +1,7 @@
 using System.IO.Ports;
 
-internal static partial class StaticUtility{
-    internal static SerialPort createSerial(string device, int speed){
+internal static class _SERIALPORT_{
+    internal static SerialPort createSerialPort(string device, int speed){
         using var sp = new SerialPort(device, speed, Parity.None, 8, StopBits.One);
         sp.DtrEnable = true;
         sp.RtsEnable = true;
