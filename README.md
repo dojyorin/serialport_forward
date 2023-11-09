@@ -1,6 +1,8 @@
 # **SerialPort Forward**
 ![actions:test](https://github.com/dojyorin/serialport_forward/actions/workflows/test.yaml/badge.svg)
 ![actions:release](https://github.com/dojyorin/serialport_forward/actions/workflows/release.yaml/badge.svg)
+![shields:license](https://img.shields.io/github/license/dojyorin/serialport_forward)
+![shields:release](https://img.shields.io/github/release/dojyorin/serialport_forward)
 
 Forward serialport I/O to standard I/O.
 
